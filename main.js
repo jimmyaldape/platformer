@@ -12,7 +12,9 @@ const player = new Player(context);
 function animate() {
     requestAnimationFrame(animate)
     context.clearRect(0,0, canvas.width,canvas.height)
+
     player.update();   
 }
+
 
 animate()
