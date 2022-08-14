@@ -1,4 +1,4 @@
-const gravity = .35;
+const gravity = .45;
 class Player {
     constructor(context) {
         this.context = context;
@@ -24,11 +24,15 @@ class Player {
     }
 
     update() {
-    
         this.draw();
         this.position.y += this.velocity.y;
 
-        this.velocity.y += gravity;
+        if (this.position.y + this.height + this.velocity.y <= this.context.canvas.height) {
+            this.velocity.y += gravity;
+        } else {
+            this.velocity.y = 0;
+        }
+        
     }
 }
 
