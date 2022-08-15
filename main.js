@@ -9,7 +9,7 @@ canvas.height = window.innerHeight;
 const context = canvas.getContext('2d');
 
 const player = new Player(context);
-const platform = new Platform();
+const platform = new Platform(context);
 
 const keys = {
     right: {
