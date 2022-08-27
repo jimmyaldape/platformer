@@ -26,6 +26,7 @@ function animate() {
     context.clearRect(0,0, canvas.width, canvas.height);
 
     player.update();
+    platform.draw();
 
     if (keys.right.pressed) {
         player.velocity.x = 5;
@@ -33,6 +34,12 @@ function animate() {
         player.velocity.x = -5;
     } else {
         player.velocity.x = 0;
+    }
+
+    if (player.position.y + player.height + player.velocity.y <= platform.position.y
+        && player.position.x + player.width > platform.position.x
+        && player.position.x < platform.position.x + platform.width) {
+        player.velocity.y = 0;
     }
 
 }
@@ -78,7 +85,7 @@ addEventListener('keyup', ({keyCode}) => {
             break;
         case 87:
             console.log('up');
-            player.velocity.y -= 20;
+            // player.velocity.y -= 20;
             break;
     }
 })
