@@ -29,7 +29,15 @@ function animate() {
     requestAnimationFrame(animate)
     context.clearRect(0,0, canvas.width,canvas.height)
 
-    player.update();   
+    player.update();
+    
+    if (keys.right.pressed) {
+        player.velocity.x = 7;
+    } else if(keys.left.pressed){
+        player.velocity.x = -7;
+    } else {
+        player.velocity.x = 0;
+    }
 }
 
 
@@ -40,16 +48,36 @@ addEventListener('keydown', ({keyCode}) => {
 
     switch (keyCode) {
         case 39:
-            console.log('RIGHT');
+            keys.right.pressed = true;
             break;
         case 37:
-            console.log('LEFT')
+            keys.left.pressed = true;
            break;
         case 38: 
-            console.log('UP')
+            keys.up.pressed = true;
+            player.velocity.y -= 20; 
             break;
         case 40:
-            console.log('DOWN')
+            keys.down.pressed = true;
+            break;
+    }
+})
+
+addEventListener('keyup', ({keyCode}) => {
+    // console.log(keyCode);
+
+    switch (keyCode) {
+        case 39:
+            keys.right.pressed = false;
+            break;
+        case 37:
+            keys.left.pressed = false;
+           break;
+        case 38: 
+            keys.up.pressed = false;
+            break;
+        case 40:
+            keys.down.pressed = false;
             break;
     }
 })
