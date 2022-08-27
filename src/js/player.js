@@ -19,13 +19,14 @@ class Player {
     }
 
     draw() {
-        this.context.fillStyle = 'red';
+        this.context.fillStyle = '#aa0099';
         this.context.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
     update() {
         this.draw();
         this.position.y += this.velocity.y;
+        this.position.x += this.velocity.x;
 
         if (this.position.y + this.height + this.velocity.y <= this.context.canvas.height) {
             this.velocity.y += gravity;
