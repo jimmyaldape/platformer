@@ -10,6 +10,7 @@ class Player {
             x: 0,
             y: 1,
         }
+        this.gravity = .7;
         this.width = 30;
         this.height = 30;
     }
@@ -21,6 +22,7 @@ class Player {
 
     update() {
         this.draw();
+
         this.position.y += this.velocity.y;
         this.position.x += this.velocity.x;
         
@@ -29,6 +31,7 @@ class Player {
         } else {
             this.velocity.y = 0;
         }
+
     }
 
 }
