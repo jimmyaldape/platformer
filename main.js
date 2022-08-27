@@ -9,6 +9,22 @@ const context = canvas.getContext('2d');
 
 const player = new Player(context);
 
+const keys = {
+    right: {
+        pressed: false,
+    },
+     left: {
+        pressed: false,
+     },
+     up:{
+        pressed: false,
+     },
+     down: {
+        pressed: false,
+     },
+
+}
+
 function animate() {
     requestAnimationFrame(animate)
     context.clearRect(0,0, canvas.width,canvas.height)
@@ -17,4 +33,23 @@ function animate() {
 }
 
 
-animate()
+animate();
+
+addEventListener('keydown', ({keyCode}) => {
+    // console.log(keyCode);
+
+    switch (keyCode) {
+        case 39:
+            console.log('RIGHT');
+            break;
+        case 37:
+            console.log('LEFT')
+           break;
+        case 38: 
+            console.log('UP')
+            break;
+        case 40:
+            console.log('DOWN')
+            break;
+    }
+})
